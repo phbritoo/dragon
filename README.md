@@ -1,7 +1,15 @@
 # Dragon
 
-Projeto desenvolvido em **ReactJS**.  
-#### Clique  [aqui](https://pokemonstore.netlify.app/)  para ver a live demo.
+
+#### Clique  [aqui](https://desafio-dragon.netlify.app/)  para ver a live demo.
+
+## Tecnologia
+
+| Tech| Versão |
+| ------ | ------ |
+| React Js | 17.0.1 |
+| Node  | 12.18 |
+| Npm | 6.14 |
 ## Instalação local
 
 Instale as dependências e rode o servidor.
