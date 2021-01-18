@@ -4,6 +4,7 @@ import AddDragon from "../add-dragon/addDragon";
 import * as actions from "../../../store/actions/";
 import { MDBBtn, MDBContainer, MDBCardTitle, MDBRow, MDBCol, MDBIcon, MDBCard, MDBCardBody, MDBCardText } from 'mdbreact';
 import Menu from "../../../containers/menu/menu";
+import FooterPage from "../../../containers/footer/footer";
 
 const Home = props => {
 
@@ -78,6 +79,7 @@ const Home = props => {
         {props.error && <p>{props.error}</p>}
       </div>
       {list}
+      <FooterPage></FooterPage>
     </Fragment>
   );
 };

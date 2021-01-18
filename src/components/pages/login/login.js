@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../../store/actions/";
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBIcon } from 'mdbreact';
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBTooltip } from 'mdbreact';
 
 
 const Login = props => {
@@ -68,17 +68,20 @@ const Login = props => {
                 />
               </div>
               <div className="text-center">
-                <MDBBtn type="submit" gradient="purple">
-                  <strong className="h5 text-center" > Entrar</strong>
-                  <MDBIcon icon="dragon" className="ml-3" size="2x" />
-                </MDBBtn>
+                <MDBTooltip placement="bottom">
+                  <MDBBtn type="submit" gradient="purple">
+                    <strong className="h5 text-center" > Entrar</strong>
+                    <MDBIcon icon="dragon" className="ml-3" size="2x" />
+                  </MDBBtn>
+                  <div> Dica: admin/admin</div>
+                </MDBTooltip>
               </div>
 
             </form>
           </MDBCol>
         </MDBRow>
         <MDBRow center className='d-flex justify-content-center mb-5'>
-            {props.error && <p>{props.error}</p>}
+          {props.error && <p>{props.error}</p>}
         </MDBRow>
       </MDBContainer>
     </Fragment>

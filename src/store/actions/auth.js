@@ -10,7 +10,7 @@ export const initLogin = () => {
 export const loginFail = () => {
   return {
     type: actionTypes.LOGIN_FAIL,
-    error: "Usuário/Senha inválidos! Dica: admin/admin"
+    error: "Usuário/Senha inválidos!"
   }
 }
 

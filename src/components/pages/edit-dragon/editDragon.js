@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { connect } from 'react-redux';
 import * as actions from "../../../store/actions/";
-import { MDBBtn, MDBRow, MDBIcon, MDBInputGroup } from 'mdbreact';
+import { MDBBtn, MDBRow, MDBIcon, MDBInputGroup, MDBTooltip } from 'mdbreact';
 import { history } from '../../../history'
 import Menu from "../../../containers/menu/menu";
 
@@ -145,24 +145,36 @@ const EditDragon = props => {
       {setDisplayMode()}
       <MDBRow center className='d-flex justify-content-center mb-4'>
         <span onClick={goBackHandler} >
-          <MDBBtn href="#" gradient="blue">
-            <MDBIcon icon="arrow-left" size="2x" />
-          </MDBBtn>
+          <MDBTooltip placement="bottom">
+            <MDBBtn href="#" gradient="blue">
+              <MDBIcon icon="arrow-left" size="2x" />
+            </MDBBtn>
+            <div>Voltar</div>
+          </MDBTooltip>
         </span>
         {!isEdit && <span onClick={editDragonHandler}>
-          <MDBBtn href="#" gradient="purple">
-            <MDBIcon icon="pen" size="2x" />
-          </MDBBtn>
+          <MDBTooltip placement="bottom">
+            <MDBBtn href="#" gradient="purple">
+              <MDBIcon icon="pen" size="2x" />
+            </MDBBtn>
+            <div> Editar Dragão</div>
+          </MDBTooltip>
         </span>}
         {isEdit && <span onClick={saveDragonHandler}>
-          <MDBBtn href="#" gradient="purple">
-            <MDBIcon icon="save" size="2x" />
-          </MDBBtn>
+          <MDBTooltip placement="bottom">
+            <MDBBtn href="#" gradient="purple">
+              <MDBIcon icon="save" size="2x" />
+            </MDBBtn>
+            <div>Salvar</div>
+          </MDBTooltip>
         </span>}
         {!isEdit && <span onClick={deleteDragonHandler}>
-          <MDBBtn href="#" color="danger" outline>
-            <MDBIcon icon="trash-alt" size="2x" />
-          </MDBBtn>
+          <MDBTooltip placement="bottom">
+            <MDBBtn href="#" color="danger" outline>
+              <MDBIcon icon="trash-alt" size="2x" />
+            </MDBBtn>
+            <div>Escluir Dragão</div>
+          </MDBTooltip>
         </span>}
       </MDBRow>
       <div>
