@@ -5,7 +5,7 @@ import axios from 'axios'
 
 export const saveDragon = (dragonDetails) => {
     return dispatch => {
-        const url = `http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon/${dragonDetails.id}`;
+        const url = `https://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon/${dragonDetails.id}`;
         axios.put(url, dragonDetails)
             .then(response =>{         
                 dispatch(saveDragonSuccess(response));
@@ -34,7 +34,7 @@ export const saveDragonFail = error => {
 export const deleteDragon = dragonId => {
     return dispatch => {
         dispatch(deleteDragonInit());
-        const url = `http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon/${dragonId}`;
+        const url = `https://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon/${dragonId}`;
         axios.delete(url)
             .then(response => {
                 dispatch(deleteDragonSuccess(true)); 
@@ -70,7 +70,7 @@ export const deleteDragonFail = error => {
 
 export const createDragon = (newDragon) => {
     return dispatch => {
-        const url = `http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon/`;
+        const url = `https://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon/`;
         axios.post(url,newDragon)
             .then(response => {
                 dispatch(createDragonSuccess(true));

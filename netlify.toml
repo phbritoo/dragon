@@ -1,0 +1,7 @@
+[build]
+base = "."
+command = "npm run build"
+publish = "./build/"
+
+[build.environment]
+REACT_APP_API_URL = "https://600528e9e6f31aab57286c43--desafio-dragon.netlify.app/"
