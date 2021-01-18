@@ -1,8 +1,7 @@
 # Dragon
 
-Projeto desenvolvido em **ReactJS**.  Clique  [aqui](www.google.com)  para ver a live **demo**.
-
-
+Projeto desenvolvido em **ReactJS**.  
+#### Clique  [aqui](https://pokemonstore.netlify.app/)  para ver a live demo.
 ## Instalação local
 
 Instale as dependências e rode o servidor.
@@ -23,7 +22,7 @@ $ npm start
  
 
 ## API
-**API:** [http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon](http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon)
+ [http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon](http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon)
 
 -   Lista de dragões: GET .../api/v1/dragon
 -   Detalhes de dragões: GET .../api/v1/dragon/:id
