@@ -1,7 +1,6 @@
 # Dragon
 
-Projeto desenvolvido em **React JS**
-#### Clique  [aqui](https://pokemonstore.netlify.app/)  para ver a live demo.
+Projeto desenvolvido em **React JS**. Clique  **[aqui](https://pokemonstore.netlify.app/)**  para ver a live **demo**.
 
 
 ## Instalação local
