@@ -1,6 +1,6 @@
 # Dragon
 
-Projeto desenvolvido em **React JS**. Clique  **[aqui](https://pokemonstore.netlify.app/)**  para ver a live **demo**.
+Projeto desenvolvido em **React JS**. Clique  **[aqui](https://desafio-dragon.netlify.app/)**  para ver a live **demo**.
 
 
 ## Instalação local
@@ -29,4 +29,4 @@ $ npm start
 -   Detalhes de dragões: GET .../api/v1/dragon/:id
 -   Criação de um dragão: POST .../api/v1/dragon
 -   Edição de um dragão: PUT .../api/v1/dragon/:id
--   Deleção de um dragão: DELETE .../api/v1/dragon/:id
+-   Deleção de um dragão: DELETE .../api/v1/dragon/:id  
