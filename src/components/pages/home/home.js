@@ -2,9 +2,10 @@ import React, { useState, useEffect, Fragment } from "react";
 import { connect } from "react-redux";
 import AddDragon from "../add-dragon/addDragon";
 import * as actions from "../../../store/actions/";
-import { MDBBtn, MDBContainer, MDBCardTitle, MDBRow, MDBCol, MDBIcon, MDBCard, MDBCardBody, MDBCardText } from 'mdbreact';
+import { MDBBtn, MDBCardImage, MDBRow, MDBCol, MDBIcon, MDBCard, MDBCardBody, MDBCardText } from 'mdbreact';
 import Menu from "../../../containers/menu/menu";
 import FooterPage from "../../../containers/footer/footer";
+import './home.css'
 
 const Home = props => {
 
@@ -25,62 +26,76 @@ const Home = props => {
   if (!props.loading) {
     list = props.dragonsList.map(dragon => {
       return (
-        <Fragment>
-          <MDBContainer key={dragon.id}>
-            <MDBRow center>
-              {/* <MDBCol md="0" sm="6"> */}
-              <MDBCard className="text-center m-3" style={{ width: "22rem", cursor: "pointer", backgroundColor: "#F5F5F5" }} >
-                {/* <hr style={{ backgroundColor: "purple", height: 1 }} /> */}
-                <MDBCardBody onClick={onClickDragonHandler.bind(this, dragon)}>
-                  <img width="160rem" src="https://i1.sndcdn.com/avatars-000339898322-9sq0en-t500x500.jpg" className="rounded mx-auto d-block" alt="dragao" />
-                  <MDBCardText className='mt-4' style={{ color: "#83508B" }}>
-                    <MDBCardTitle><strong>{dragon.name}</strong></MDBCardTitle>
+        <>
+          <MDBRow >
+            <MDBCol>
+              <MDBCard wide className="card" key={dragon.id}>
+                <MDBCardImage
+                  className='blue-gradient white-text d-flex justify-content-center align-items-center flex-column p-4 rounded'
+                  tag='div'
+                >
+                  <h2 className='h2-responsive mb-2'>{dragon.name}</h2>
+                  <p>
+                    <MDBIcon icon='calendar-alt' /> {formatDate(dragon.createdAt)}
+                  </p>
+                </MDBCardImage>
+                <MDBCardBody cascade className='text-center' onClick={onClickDragonHandler.bind(this, dragon)}>
+                  <MDBCardText style={{ color: "#83508B" }} >
+                    <strong className="h5">ID: </strong>
+                    <strong className="h5">{dragon.id}</strong>
                   </MDBCardText>
                   <MDBCardText style={{ color: "#83508B" }} >
-                    <strong className="h6">ID: </strong>
-                    <strong className="h6">{dragon.id}</strong>
+                    <strong className="h5">Tipo: </strong>
+                    <strong className="h5">{dragon.type}</strong>
                   </MDBCardText>
-                  <MDBCardText style={{ color: "#83508B" }} >
-                    <strong className="h6">Tipo: </strong>
-                    <strong className="h6">{dragon.type}</strong>
-                  </MDBCardText>
-                  <MDBCardText style={{ color: "#83508B" }} >
-                    <strong className="h6">Data: </strong>
-                    <strong className="h6">{formatDate(dragon.createdAt)}</strong>
-                  </MDBCardText>
+
+                  <a
+                    href='#'
+                    onClick={onClickDragonHandler.bind(this, dragon)}
+                    className='mt-1 d-flex justify-content-end align-items-center'
+                  >
+                    <h5 className='editar'>
+                      Detalhes{' '}
+                      <MDBIcon
+                        icon='chevron-right'
+                        className='ml-2'
+                        size='sm'
+                      >
+
+                      </MDBIcon>
+                    </h5>
+                  </a>
                 </MDBCardBody>
-                {/* <hr style={{ backgroundColor: "purple", height: 1 }} /> */}
               </MDBCard>
-              {/* </MDBCol> */}
-            </MDBRow>
-          </MDBContainer>
-        </Fragment>
+            </MDBCol>
+          </MDBRow>
+        </>
       )
     });
   }
 
   return (
-    <Fragment>
+    <>
       <Menu></Menu>
-      <MDBRow className='d-flex justify-content-center' style={{ marginTop: "30px", cursor: "pointer" }} >
-        <MDBCol className='mb-3 mt-5'  >
-          <span onClick={addDragonHandler}>
-            <MDBBtn size="lg" color="secondary"  >
-              <MDBIcon icon="plus" size="2x" className="mr-2" style={{}} />
-              <strong className="h5 text-center">   Criar Dragão</strong>
-            </MDBBtn>
-          </span>
-        </MDBCol>
+      <MDBRow style={{ marginTop: "80px" }} >
+        <span onClick={addDragonHandler} >
+          <MDBBtn color="secondary">
+            <MDBIcon icon="plus" size="2x" className="mr-2" />
+            <strong className="h5 text-center">   Criar Dragão</strong>
+          </MDBBtn>
+        </span>
       </MDBRow>
-      <div>
+      <>
         {isAddingNew && <AddDragon />}
-      </div>
-      <div>
+      </>
+      <>
         {props.error && <p>{props.error}</p>}
+      </>
+      <div className="container">
+        {list}
       </div>
-      {list}
       <FooterPage></FooterPage>
-    </Fragment>
+    </>
   );
 };
 

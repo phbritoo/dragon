@@ -20,27 +20,19 @@ class Menu extends Component {
       history.push('/');
       window.location.reload()
     }
-    const goHome = () =>{
-      history.push('/home');
-    }
+    
     return (
       <Router>
         <MDBNavbar style={bgPink} dark expand="md" fixed="top">
           <MDBNavbarBrand>
             <MDBIcon icon="dragon" className="m-3" />
-            <strong className="white-text h5">DESAFIO-DRAGON</strong>
+            <strong className="white-text h6">DESAFIO-DRAGON</strong>
             <MDBIcon icon="dragon" className="m-3" />
-
           </MDBNavbarBrand>
           <MDBNavbarToggler onClick={this.toggleCollapse} />
           <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
 
             <MDBNavbarNav right>
-              <MDBNavItem >
-                <MDBNavLink to="#!" onClick={goHome} className="white-text h6 text-center m-3">
-                  <MDBIcon icon="list" className="mr-2" />Listar Dragões
-                </MDBNavLink>
-              </MDBNavItem>
               <MDBNavItem >
                 <MDBNavLink to="/" onClick={goExit} className="white-text h6 text-center m-3">
                   Sair       <MDBIcon far icon="arrow-alt-circle-right" className="mr-2" />

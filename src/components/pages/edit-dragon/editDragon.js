@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { connect } from 'react-redux';
 import * as actions from "../../../store/actions/";
-import { MDBBtn, MDBRow, MDBIcon, MDBInputGroup, MDBTooltip } from 'mdbreact';
+import { MDBBtn, MDBRow, MDBIcon, MDBTooltip, MDBInput } from 'mdbreact';
 import { history } from '../../../history'
 import Menu from "../../../containers/menu/menu";
+import FooterPage from "../../../containers/footer/footer";
 
 const EditDragon = props => {
   const [dragonDetails, setDragonDetails] = useState({});
@@ -59,26 +60,29 @@ const EditDragon = props => {
     return (
       <>
         <Menu></Menu>
-        <MDBInputGroup
+        <MDBInput
           type="text"
           id="name"
-          prepend="Nome:"
+          label="Nome"
           value={dragonDetails.name}
           containerClassName="flex-nowrap mb-3"
           onChange={changeHandler}
           size="lg"
+          outline
           background
         />
-        <MDBInputGroup
+        <MDBInput
           type="text"
           id="type"
-          prepend="Tipo:"
-          containerClassName="flex-nowrap mb-3"
+          label="Tipo"
           value={dragonDetails.type}
+          containerClassName="flex-nowrap mb-3"
           onChange={changeHandler}
           size="lg"
+          outline
           background
         />
+
       </>
     );
   };
@@ -86,42 +90,46 @@ const EditDragon = props => {
     return (
       <>
         <Menu></Menu>
-        <MDBInputGroup
-          prepend="ID"
-          containerClassName="flex-nowrap mb-3"
-          outline
-          size="lg"
+        <MDBInput
+          label="ID do Dragão"
           hint={dragonDetails.id}
-          background
-          disabled
-        />
-        <MDBInputGroup
-          prepend="Nome"
           containerClassName="flex-nowrap mb-3"
-          outline
+          disabled
           size="lg"
+          type="text"
+          outline
+          background
+
+        />
+        <MDBInput
+          label="Nome do Dragão"
           hint={dragonDetails.name}
-          background
-          disabled
-        />
-        <MDBInputGroup
-          prepend="Tipo"
           containerClassName="flex-nowrap mb-3"
-          outline
+          disabled
           size="lg"
+          type="text"
+          outline
+          background
+        />
+        <MDBInput
+          label="Tipo do Dragão"
           hint={dragonDetails.type}
-          background
-          dis
-          disabled
-        />
-        <MDBInputGroup
-          prepend="Data"
           containerClassName="flex-nowrap mb-3"
-          outline
-          size="lg"
-          hint={formatDate(dragonDetails.createdAt)}
-          background
           disabled
+          size="lg"
+          type="text"
+          outline
+          background
+        />
+        <MDBInput
+          label="Data de Criação:"
+          hint={formatDate(dragonDetails.createdAt)}
+          containerClassName="flex-nowrap mb-3"
+          disabled
+          size="lg"
+          type="text"
+          outline
+          background
         />
       </>
     );
@@ -141,8 +149,9 @@ const EditDragon = props => {
   return (
     <div>
       <Menu></Menu>
-      <img width="160rem" src="https://i1.sndcdn.com/avatars-000339898322-9sq0en-t500x500.jpg" className="rounded mx-auto d-block mb-3" alt="dragao" />
+      <img width="110rem" style={{ marginTop: "80px" }} src="https://i1.sndcdn.com/avatars-000339898322-9sq0en-t500x500.jpg" className="rounded mx-auto d-block" alt="dragao" />
       {setDisplayMode()}
+      {/* Botoes */}
       <MDBRow center className='d-flex justify-content-center mb-4'>
         <span onClick={goBackHandler} >
           <MDBTooltip placement="bottom">
@@ -180,6 +189,10 @@ const EditDragon = props => {
       <div>
         {props.error && <p>{props.error}</p>}
       </div>
+
+      <MDBRow center>
+        <FooterPage></FooterPage>
+      </MDBRow>
     </div>
   );
 };

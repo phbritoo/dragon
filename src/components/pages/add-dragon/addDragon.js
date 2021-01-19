@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import { connect } from 'react-redux';
 import { updateObject } from "../../../shared/utility";
 import * as actions from "../../../store/actions";
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBIcon } from 'mdbreact';
+import {MDBInput, MDBBtn, MDBIcon } from 'mdbreact';
 
 
 const AddDragon = props => {
@@ -20,27 +20,24 @@ const AddDragon = props => {
       const newDragonUpdate = updateObject(newDragon, { createdAt: creationDate, histories: histories })
       setNewDragon({ ...newDragonUpdate });
       props.createDragon(newDragon)
+      alert("Dragão cadastrado com sucesso!");
     }
     event.preventDefault();
-    alert("Dragão cadastrado com sucesso!");
   }
 
   const changeHandler = event => {
     const { id, value } = event.target;
     setNewDragon({ ...newDragon, [id]: value });
   };
-
   return (
 
     <Fragment>
-      <MDBContainer>
-        <MDBRow className='d-flex justify-content-center'>
-          <MDBCol >
-            <form onSubmit={submitHandler} >
+            <form onSubmit={submitHandler} style={{margin:"-20px"}}>
               <MDBInput
                 label="Nome"
                 type="text"
                 id="name"
+                style={{margin:"0 auto"}}
                 placeholder="Nome:"
                 background
                 group
@@ -50,6 +47,7 @@ const AddDragon = props => {
               <MDBInput
                 type="text"
                 id="type"
+                style={{margin:"0 auto"}}
                 placeholder="Tipo:"
                 onChange={changeHandler}
                 label="Tipo"
@@ -57,22 +55,15 @@ const AddDragon = props => {
                 background
                 group
               />
-              <div className="text-center">
+              <div className="text-center mt-0" style={{margin:"0 auto"}}>
                 <MDBBtn type="submit" gradient="purple">
                   <strong className="h5 text-center" > Salvar</strong>
-                  <MDBIcon icon="save" className="ml-3" size="2x" />
+                  <MDBIcon icon="save" className="ml-2" size="2x" />
                 </MDBBtn>
               </div>
 
             </form>
-          </MDBCol>
-        </MDBRow>
-        <MDBRow className='d-flex justify-content-center'>
-          <MDBCol md='3' className='mt-4 text-white'>
             {props.error && <p>{props.error}</p>}
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
     </Fragment>
 
   );

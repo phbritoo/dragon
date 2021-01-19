@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../../store/actions/";
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBTooltip } from 'mdbreact';
+import { MDBRow, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBTooltip, MDBBox } from 'mdbreact';
 
 
 const Login = props => {
@@ -13,7 +13,7 @@ const Login = props => {
     if (props.isLoggedIn) {
       props.history.push('/home');
     }
-  }, [props.isLoggedIn]);
+  }, [props.history, props.isLoggedIn]);
 
 
   const changeHandler = event => {
@@ -28,62 +28,62 @@ const Login = props => {
 
   return (
     <Fragment>
-      <MDBContainer>
-        <MDBRow className='d-flex justify-content-center'>
-          <MDBCol md='6' className='mt-5 text-white'>
-            <form onSubmit={submitHandler} >
-              <p className="h3 text-center mb-4">
-                <strong className='font-weight-bold'>
-                  BEM VINDO
+      {/* <MDBContainer> */}
+      <MDBRow className='d-flex justify-content-center'>
+        <MDBCol className='text-white'>
+          <form onSubmit={submitHandler} >
+            <p className="h3 text-center">
+              <strong className='font-weight-bold'>
+                BEM VINDO
                  </strong>
-              </p>
-              <div>
-                <MDBInput
-                  label="LOGIN"
-                  icon="user"
-                  id="username"
-                  size="lg"
-                  background
-                  group
-                  type="text"
-                  validate
-                  error="wrong"
-                  success="right"
-                  onChange={changeHandler}
-                  value={formData.username}
-                />
-                <MDBInput
-                  label="SENHA"
-                  icon="lock"
-                  id="password"
-                  size="lg"
-                  background
-                  group
-                  type="password"
-                  validate
-                  error="wrong"
-                  success="right"
-                  onChange={changeHandler}
-                  value={formData.password}
-                />
-              </div>
-              <div className="text-center">
+            </p>
+            <MDBInput
+              label="LOGIN"
+              icon="user"
+              id="username"
+              size="lg"
+              background
+              outline
+              group
+              type="text"
+              validate
+              error="wrong"
+              success="right"
+              onChange={changeHandler}
+              value={formData.username}
+            />
+            <MDBInput
+              label="SENHA"
+              icon="lock"
+              id="password"
+              size="lg"
+              background
+              outline
+              group
+              type="password"
+              validate
+              error="wrong"
+              success="right"
+              onChange={changeHandler}
+              value={formData.password}
+            />
+            {/* <div className="text-center"> */}
+            <MDBBox display="flex" justifyContent="center">
                 <MDBTooltip placement="bottom">
-                  <MDBBtn type="submit" gradient="purple">
-                    <strong className="h5 text-center" > Entrar</strong>
-                    <MDBIcon icon="dragon" className="ml-3" size="2x" />
-                  </MDBBtn>
-                  <div> Dica: admin/admin</div>
-                </MDBTooltip>
-              </div>
-
-            </form>
-          </MDBCol>
-        </MDBRow>
-        <MDBRow center className='d-flex justify-content-center mb-5'>
-          {props.error && <p>{props.error}</p>}
-        </MDBRow>
-      </MDBContainer>
+                <MDBBtn type="submit" size="sm" className="ml-5 p-3" flat gradient="purple">
+                  <span className="h5 text-center" > Entrar</span>
+                  <MDBIcon icon="dragon" className="ml-3" size="2x" />
+                </MDBBtn>
+                <div> Dica: admin/admin</div>
+              </MDBTooltip>
+            </MDBBox>
+          </form>
+        </MDBCol>
+      </MDBRow>
+      <MDBRow center className='white-text'>
+        {props.error && <p>{props.error}</p>}
+      </MDBRow>
+      {/* </MDBContainer> */}
     </Fragment>
 
   );
