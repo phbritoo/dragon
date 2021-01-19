@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import * as actions from "../../../store/actions/";
 import { MDBBtn, MDBRow, MDBIcon, MDBTooltip, MDBInput } from 'mdbreact';
 import { history } from '../../../history'
-import Menu from "../../../containers/menu/menu";
-import FooterPage from "../../../containers/footer/footer";
+import Menu from "../../../components/menu/menu";
+import FooterPage from "../../../components/footer/footer";
 
 const EditDragon = props => {
   const [dragonDetails, setDragonDetails] = useState({});

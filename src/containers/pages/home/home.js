@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import AddDragon from "../add-dragon/addDragon";
 import * as actions from "../../../store/actions/";
 import { MDBBtn, MDBCardImage, MDBRow, MDBCol, MDBIcon, MDBCard, MDBCardBody, MDBCardText } from 'mdbreact';
-import Menu from "../../../containers/menu/menu";
-import FooterPage from "../../../containers/footer/footer";
+import Menu from "../../../components/menu/menu";
+import FooterPage from "../../../components/footer/footer";
 import './home.css'
 
 const Home = props => {

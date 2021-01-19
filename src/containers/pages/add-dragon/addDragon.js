@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 import { updateObject } from "../../../shared/utility";
 import * as actions from "../../../store/actions";
 import { MDBInput, MDBBtn, MDBIcon, MDBRow } from 'mdbreact';
-import Menu from "../../../containers/menu/menu";
-import FooterPage from "../../../containers/footer/footer";
-import { history } from "../../../history";
+import Menu from "../../../components/menu/menu";
+import FooterPage from "../../../components/footer/footer";
 
 
 const AddDragon = props => {

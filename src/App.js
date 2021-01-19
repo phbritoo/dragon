@@ -1,9 +1,9 @@
 import React from "react";
 import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import Login from "./components/pages/login/login";
-import Home from "./components/pages/home/home";
-import EditDragon from "./components/pages/edit-dragon/editDragon";
+import Login from "./containers/pages/login/login";
+import Home from "./containers/pages/home/home";
+import EditDragon from "./containers/pages/edit-dragon/editDragon";
 import "./App.css";
 import 'normalize.css'
 
