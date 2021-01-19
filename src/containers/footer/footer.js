@@ -10,7 +10,7 @@ const FooterPage = () => {
             <a href="https://www.linkedin.com/in/phbritoo/" >
             <></>
             <MDBIcon fab icon="linkedin-in" className="p-3" />
-              Paulo Brito
+              Desenvolvido por Paulo Brito
             </a>
         </div>
       </MDBFooter>

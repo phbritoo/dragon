@@ -190,8 +190,8 @@ const EditDragon = props => {
         {props.error && <p>{props.error}</p>}
       </div>
 
-      <MDBRow center>
-        <FooterPage></FooterPage>
+      <MDBRow center className="fixed-bottom">
+          <FooterPage></FooterPage>
       </MDBRow>
     </div>
   );

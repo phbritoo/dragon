@@ -54,7 +54,7 @@ const Home = props => {
                     onClick={onClickDragonHandler.bind(this, dragon)}
                     className='mt-1 d-flex justify-content-end align-items-center'
                   >
-                    <h5 className='editar'>
+                    <h5>
                       Detalhes{' '}
                       <MDBIcon
                         icon='chevron-right'
@@ -77,16 +77,16 @@ const Home = props => {
   return (
     <>
       <Menu></Menu>
-      <MDBRow style={{ marginTop: "80px" }} >
-        <span onClick={addDragonHandler} >
-          <MDBBtn color="secondary">
+      <MDBRow center> 
+        <span style={{ marginTop: "80px" }} onClick={addDragonHandler}>
+          <MDBBtn color="secondary"  >
             <MDBIcon icon="plus" size="2x" className="mr-2" />
             <strong className="h5 text-center">   Criar Dragão</strong>
           </MDBBtn>
         </span>
       </MDBRow>
       <>
-        {isAddingNew && <AddDragon />}
+        {isAddingNew && <AddDragon/>}
       </>
       <>
         {props.error && <p>{props.error}</p>}

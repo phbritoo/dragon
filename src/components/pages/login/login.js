@@ -45,6 +45,7 @@ const Login = props => {
               background
               outline
               group
+              required
               type="text"
               validate
               error="wrong"
@@ -60,6 +61,7 @@ const Login = props => {
               background
               outline
               group
+              required
               type="password"
               validate
               error="wrong"

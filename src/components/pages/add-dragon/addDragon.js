@@ -2,7 +2,10 @@ import React, { Fragment, useState } from "react";
 import { connect } from 'react-redux';
 import { updateObject } from "../../../shared/utility";
 import * as actions from "../../../store/actions";
-import {MDBInput, MDBBtn, MDBIcon } from 'mdbreact';
+import { MDBInput, MDBBtn, MDBIcon, MDBRow } from 'mdbreact';
+import Menu from "../../../containers/menu/menu";
+import FooterPage from "../../../containers/footer/footer";
+import { history } from "../../../history";
 
 
 const AddDragon = props => {
@@ -23,47 +26,55 @@ const AddDragon = props => {
       alert("Dragão cadastrado com sucesso!");
     }
     event.preventDefault();
+    document.getElementById('form').style.display = 'none'
   }
 
   const changeHandler = event => {
     const { id, value } = event.target;
     setNewDragon({ ...newDragon, [id]: value });
   };
+
   return (
 
     <Fragment>
-            <form onSubmit={submitHandler} style={{margin:"-20px"}}>
-              <MDBInput
-                label="Nome"
-                type="text"
-                id="name"
-                style={{margin:"0 auto"}}
-                placeholder="Nome:"
-                background
-                group
-                validate
-                onChange={changeHandler}
-              />
-              <MDBInput
-                type="text"
-                id="type"
-                style={{margin:"0 auto"}}
-                placeholder="Tipo:"
-                onChange={changeHandler}
-                label="Tipo"
-                validate
-                background
-                group
-              />
-              <div className="text-center mt-0" style={{margin:"0 auto"}}>
-                <MDBBtn type="submit" gradient="purple">
-                  <strong className="h5 text-center" > Salvar</strong>
-                  <MDBIcon icon="save" className="ml-2" size="2x" />
-                </MDBBtn>
-              </div>
+      <Menu></Menu>
+      <form id="form" onSubmit={submitHandler} style={{ margin: "-20px" }}>
+        <MDBInput
+          label="Nome"
+          type="text"
+          id="name"
+          style={{ margin: "0 auto" }}
+          placeholder="Nome:"
+          background
+          group
+          validate
+          required
+          onChange={changeHandler}
+        />
+        <MDBInput
+          type="text"
+          id="type"
+          style={{ margin: "0 auto" }}
+          placeholder="Tipo:"
+          onChange={changeHandler}
+          label="Tipo"
+          validate
+          required
+          background
+          group
+        />
+        <div className="text-center mt-0" style={{ margin: "0 auto" }}>
+          <MDBBtn type="submit" gradient="purple">
+            <strong className="h5 text-center" > Salvar</strong>
+            <MDBIcon icon="save" className="ml-2" size="2x" />
+          </MDBBtn>
+        </div>
 
-            </form>
-            {props.error && <p>{props.error}</p>}
+      </form>
+      {props.error && <p>{props.error}</p>}
+      <MDBRow center className="fixed-bottom">
+        <FooterPage></FooterPage>
+      </MDBRow>
     </Fragment>
 
   );
